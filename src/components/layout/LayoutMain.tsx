@@ -1,6 +1,7 @@
-import React from 'react'
-import { Box } from "@chakra-ui/react"
-import Footer from './Footer';
+import React from "react";
+import { Box } from "@chakra-ui/react";
+import Footer from "./Footer";
+import { Navbar } from "components/layout/Navbar";
 
 interface LayoutMainProps {
   children: React.ReactNode;
@@ -9,8 +10,9 @@ interface LayoutMainProps {
 export const LayoutMain: React.FC<LayoutMainProps> = ({ children }) => {
   return (
     <Box>
+      <Navbar />
       {children}
-      < Footer />
+      <Footer />
     </Box>
-  )
-}
+  );
+};

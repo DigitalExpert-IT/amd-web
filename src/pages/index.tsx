@@ -1,5 +1,11 @@
 import { LayoutMain } from "components/layout/LayoutMain";
-import { Banner, AboutUs, OurService, MarketCard, ContactUs } from "components/section";
+import {
+  Banner,
+  AboutUs,
+  OurService,
+  MarketCard,
+  ContactUs,
+} from "components/section";
 
 export default function Home() {
   return (

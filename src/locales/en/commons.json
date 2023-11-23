@@ -1,5 +1,11 @@
 {
-  "getStarted": "Get Started", 
-  "crypto": "Crypto", 
+  "navigation": {
+    "home": "home",
+    "services": "services",
+    "about": "about us",
+    "contact": "contact"
+  },
+  "getStarted": "Get Started",
+  "crypto": "Crypto",
   "footerDescription": "Companies that can help you in developing your company for the future"
 }
