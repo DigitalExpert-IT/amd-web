@@ -1,0 +1,34 @@
+{
+  "home": {
+    "banner": {
+      "title": "Decentralizing",
+      "title-2": "Millions of Businesses",
+      "subTitle": "Through Web3 Applications"
+    },
+
+    "aboutUs": {
+      "title": "About us",
+      "weBringRevolution": "We Bring <strong>Revolution</strong> <small>in</small> Business",
+      "bestSolution": "Best <strong>Solutions</strong> For You",
+      "content1": "Our core team consists of experts with long experience in blockchain and web3 technologies, who have been successfully involved in various successful projects in various sectors. With deep knowledge and strong passion, our team is committed to achieving our company vision of delivering a more inclusive and innovative web3 world.",
+      "content2": "We are a company committed to starting a revolution in the business world through web3 technology. Since the beginning, we have focused on developing blockchain technology and expanding our services to create various types of tokens, smart contracts, web3 applications, as well as contributing to the growing web3 metaverse.",
+      "content3": "Our core team has helped businesses create tokens that suit their needs, create reliable smart contracts, and develop innovative web3 applications. We have also contributed to the development of fast-growing web3 metaverse projects, with a deep understanding of metaverse dynamics and how this will impact business in the future. With our diverse experience and commitment to decentralization, we are excited to continue supporting businesses on their journey towards a more inclusive and innovativ"
+    },
+
+    "ourService": {
+      "title": "Our service",
+      "whatWeDo": "What we <strong>do</strong>"
+    },
+
+    "market": {
+      "lastDay": "Last {{day}} Day",
+      "growAndTrend": "Grow And Trend"
+    },
+
+    "contactUs": {
+      "title": "Contact us",
+      "workWithUs": "Let's <strong>work</strong> with us.",
+      "content1": "AMD is a biggest company in Indonesia, who provides the service in Development Website, web3 and blockchain developer"
+    }
+  }
+}
