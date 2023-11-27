@@ -6,7 +6,7 @@ export const AboutUs = () => {
   const { t } = useTranslation();
 
   return (
-    <Container maxW="container.xl" my="2rem">
+    <Container maxW="container.xl" my="2rem" id="about">
       <Box textAlign={{ base: "center" }}>
         <Text textTransform="uppercase" fontSize="2xl">
           {t("pages.home.aboutUs.title")}

@@ -7,7 +7,7 @@ export interface INavChild {
 }
 export interface INavigation {
   name: string;
-  href?: string;
+  link?: string;
   children?: INavChild[];
 }
 
@@ -20,19 +20,19 @@ export interface ISocial {
 export const NAVIGATION: Array<INavigation> = [
   {
     name: "home",
-    href: "/",
+    link: "/",
   },
   {
     name: "about",
-    href: "#",
+    link: "#about",
   },
   {
     name: "services",
-    href: "#",
+    link: "#services",
   },
   {
     name: "contact",
-    href: "#",
+    link: "#contact",
   },
 ];
 

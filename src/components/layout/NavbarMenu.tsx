@@ -29,8 +29,15 @@ export const NavbarMenu: React.FC<NavItemProps> = props => {
           <Box key={idx}>
             <Popover trigger="hover" placement="bottom-start">
               <PopoverTrigger>
-                <Link href="#" key={idx}>
-                  <Text textTransform="uppercase" fontWeight="400">
+                <Link href={item.link ?? "#"} key={idx}>
+                  <Text
+                    textTransform="uppercase"
+                    fontWeight="400"
+                    fontSize="sm"
+                    _hover={{
+                      color: "blueSky.500",
+                    }}
+                  >
                     {t(`commons.navigation.${item.name}`)}
                   </Text>
                 </Link>
@@ -40,7 +47,7 @@ export const NavbarMenu: React.FC<NavItemProps> = props => {
                 <PopoverContent
                   border="0"
                   boxShadow="xl"
-                  bg="#0B4649"
+                  bg="blueSky.300"
                   p="4"
                   rounded="xl"
                   maxW="xs"

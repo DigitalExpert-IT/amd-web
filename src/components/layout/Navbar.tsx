@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
-// import { DrawerMobileNav, NavbarMenu, ButtonConnectWallet } from "components";
 import Image from "next/image";
 import {
   Box,
@@ -43,12 +42,12 @@ export const Navbar = () => {
       pb={{ base: "8", lg: "2" }}
       w="full"
       zIndex={1000}
-      bg={isOpen ? "base.500" : scrolled ? "base.500" : "transparent"}
+      bg={isOpen ? "base.800" : scrolled ? "base.800" : "transparent"}
       boxShadow={scrolled ? "dark-lg" : "none"}
       pos="fixed"
       transition="0.5s"
     >
-      <Container maxW="container.xxl">
+      <Container maxW="container.2xl">
         <Flex alignItems="center" justify="space-around">
           <Stack
             direction="row"
@@ -92,21 +91,12 @@ export const Navbar = () => {
             direction="row"
             spacing="5"
             display={{ base: "none", md: "none", lg: "flex" }}
-            justify="center"
+            justify="right"
             align="center"
             flex={1}
           >
             <NavbarMenu data={NAVIGATION} />
           </Stack>
-          {/* <Flex
-            alignItems="center"
-            gap={2}
-            flex={1}
-            justify="right"
-            display={{ base: "none", md: "none", lg: "flex" }}
-          >
-            <ButtonConnectWallet />
-          </Flex> */}
         </Flex>
       </Container>
     </Box>

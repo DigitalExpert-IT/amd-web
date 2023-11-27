@@ -41,7 +41,12 @@ const Footer = () => {
           </Stack>
           {FOOTER_DATA.map((items, idx) => (
             <Stack align={"flex-start"} key={idx}>
-              <Text fontWeight={"500"} fontSize={"lg"} mb={2}>
+              <Text
+                fontWeight={"500"}
+                fontSize={"lg"}
+                mb={2}
+                color="blueSky.300"
+              >
                 {items.headList}
               </Text>
               {items.children.map((obj, id) => (

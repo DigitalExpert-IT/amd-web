@@ -15,7 +15,7 @@ export const OurService = () => {
   const { t } = useTranslation();
 
   return (
-    <Box position="relative" overflow="hidden">
+    <Box position="relative" overflow="hidden" id="services">
       <Box
         w={{ base: 400, md: 800 }}
         h={{ base: 400, md: 800 }}

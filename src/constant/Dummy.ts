@@ -27,38 +27,26 @@ export const FOOTER_DATA = [
     headList: "Services",
     children: [
       {
-        name: "Web Development",
-        link: "#"
+        name: "Smart Contract",
+        link: "#",
       },
       {
-        name: "UI/UX Designer",
-        link: "#"
+        name: "Creating Token",
+        link: "#",
       },
       {
-        name: "Branding",
-        link: "#"
+        name: "Metaverse Game",
+        link: "#",
       },
-      {
-        name: "Shopify",
-        link: "#"
-      }
-    ]
+    ],
   },
   {
     headList: "Bussines Features",
     children: [
       {
-        name: "Data-based chatbot training",
-        link: "#"
+        name: "Web based brandings",
+        link: "#",
       },
-      {
-        name: "Model fine-tuning",
-        link: "#"
-      },
-      {
-        name: "Sales & customer service smart agents",
-        link: "#"
-      },
-    ]
-  }
-]
+    ],
+  },
+];
