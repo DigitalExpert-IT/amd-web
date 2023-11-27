@@ -1,8 +1,19 @@
 import { Box, Card, Stack, HStack, Heading, Text, Img } from "@chakra-ui/react";
+import { useCrypto } from "hooks/useCrypto";
 import { useTranslation } from "react-i18next";
+import { formatPrice } from "utils/formater";
 
 export const MarketCard = () => {
   const { t } = useTranslation();
+  const getCrypto = useCrypto();
+
+  const highAndLow = (id: number) => {
+    return getCrypto[id].prevPrice
+      ? getCrypto[id].price > getCrypto[id].prevPrice
+        ? "green.300"
+        : "red.300"
+      : "gray";
+  };
 
   return (
     <Card
@@ -44,19 +55,23 @@ export const MarketCard = () => {
             {t("pages.home.market.growAndTrend")}
           </Text>
         </Box>
+        {getCrypto.slice(0, 3).map((item, idx) => (
+          <Box flex={1} px={{ base: "4", sm: "8" }} key={idx}>
+            <HStack mb={4}>
+              <Img src={`/dummy/${idx}.png`} maxW={12} />
+              <Text fontSize={"xl"}>{item.name}</Text>
+            </HStack>
+            <Text fontSize={"xs"} textTransform={"uppercase"}>
+              {t("pages.home.market.lastDay", { day: 7 })}
+            </Text>
+            <Img src={"/dummy/graphic.png"} />
+            <Text color={highAndLow(idx)} fontSize="xl">
+              {formatPrice(item.price)}
+            </Text>
+          </Box>
+        ))}
 
-        <Box flex={1} px={{ base: "4", sm: "8" }}>
-          <HStack mb={4}>
-            <Img src={"/dummy/bitcoin.png"} maxW={12} />
-            <Text fontSize={"xl"}>BITCOIN</Text>
-          </HStack>
-          <Text fontSize={"xs"} textTransform={"uppercase"}>
-            {t("pages.home.market.lastDay", { day: 7 })}
-          </Text>
-          <Img src={"/dummy/graphic.png"} />
-        </Box>
-
-        <Box flex={1} px={{ base: "4", sm: "8" }}>
+        {/* <Box flex={1} px={{ base: "4", sm: "8" }}>
           <HStack mb={4}>
             <Img src={"/dummy/binance.png"} maxW={12} />
             <Text fontSize={"xl"}>BINANCE</Text>
@@ -65,9 +80,9 @@ export const MarketCard = () => {
             {t("pages.home.market.lastDay", { day: 7 })}
           </Text>
           <Img src={"/dummy/graphic.png"} />
-        </Box>
+        </Box> */}
 
-        <Box flex={1} px={{ base: "4", sm: "8" }}>
+        {/* <Box flex={1} px={{ base: "4", sm: "8" }}>
           <HStack mb={4}>
             <Img src={"/dummy/ethereum.png"} maxW={12} />
             <Text fontSize={"xl"}>ETHEREUM</Text>
@@ -76,7 +91,7 @@ export const MarketCard = () => {
             {t("pages.home.market.lastDay", { day: 7 })}
           </Text>
           <Img src={"/dummy/graphic.png"} />
-        </Box>
+        </Box> */}
       </Stack>
     </Card>
   );
