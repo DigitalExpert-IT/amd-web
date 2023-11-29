@@ -1,7 +1,9 @@
-import { Box, Card, Stack, HStack, Heading, Text, Img } from "@chakra-ui/react";
+import { useEffect } from "react";
 import { useCrypto } from "hooks/useCrypto";
-import { useTranslation } from "react-i18next";
 import { formatPrice } from "utils/formater";
+import { useTranslation } from "react-i18next";
+import { Box, Card, Stack, HStack, Heading, Text, Img } from "@chakra-ui/react";
+import PriceChart from "components/PriceChart";
 
 export const MarketCard = () => {
   const { t } = useTranslation();
@@ -34,6 +36,25 @@ export const MarketCard = () => {
     const rndInt = Math.floor(Math.random() * 10) + 1;
     return graphImages[rndInt];
   };
+
+  const raw_prices = [961.7442, 8963.1259, 8961.5466, 8959.3715, 8954.2278];
+
+  const min = Math.min(...raw_prices);
+  const max = Math.max(...raw_prices);
+
+  let normalised_prices: [number, number][] = [];
+
+  for (let i = 0; i < raw_prices.length; i++) {
+    let new_price = (raw_prices[i] - min) / (max - min);
+    if (isNaN(new_price)) {
+      new_price = 0;
+    }
+    normalised_prices.push([i, Math.abs(new_price * 100)]);
+  }
+
+  useEffect(() => {
+    getRandomGraph();
+  }, []);
 
   return (
     <Card
@@ -84,7 +105,8 @@ export const MarketCard = () => {
             <Text fontSize={"xs"} textTransform={"uppercase"}>
               {t("pages.home.market.lastDay", { day: 7 })}
             </Text>
-            <Img src={getRandomGraph()} />
+            {/* <Img src={getRandomGraph()} /> */}
+            <PriceChart points={normalised_prices} />
             <Text color={highAndLow(idx)} fontSize="xl">
               {formatPrice(item.price)}
             </Text>
