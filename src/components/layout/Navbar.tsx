@@ -12,7 +12,7 @@ import {
   AspectRatio,
 } from "@chakra-ui/react";
 import { NAVIGATION } from "constant/Navigation";
-import { DrawerMobile } from "components/Drawer/DrawerMobile";
+import { DrawerMobile } from "components/drawer/DrawerMobile";
 import { NavbarMenu } from "./NavbarMenu";
 
 export const Navbar = () => {

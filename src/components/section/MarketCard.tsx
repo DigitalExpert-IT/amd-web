@@ -15,6 +15,26 @@ export const MarketCard = () => {
       : "gray";
   };
 
+  const graphImages = [
+    "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/52.svg",
+    "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/1.svg",
+    "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/825.svg",
+    "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/3408.svg",
+    "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/5426.svg",
+    "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/7129.svg",
+    "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/3957.svg",
+    "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/328.svg",
+    "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/2416.svg",
+    "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/1765.svg",
+    "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/2099.svg",
+    "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/7653.svg",
+  ];
+
+  const getRandomGraph = () => {
+    const rndInt = Math.floor(Math.random() * 10) + 1;
+    return graphImages[rndInt];
+  };
+
   return (
     <Card
       position={"relative"}
@@ -64,34 +84,12 @@ export const MarketCard = () => {
             <Text fontSize={"xs"} textTransform={"uppercase"}>
               {t("pages.home.market.lastDay", { day: 7 })}
             </Text>
-            <Img src={"/dummy/graphic.png"} />
+            <Img src={getRandomGraph()} />
             <Text color={highAndLow(idx)} fontSize="xl">
               {formatPrice(item.price)}
             </Text>
           </Box>
         ))}
-
-        {/* <Box flex={1} px={{ base: "4", sm: "8" }}>
-          <HStack mb={4}>
-            <Img src={"/dummy/binance.png"} maxW={12} />
-            <Text fontSize={"xl"}>BINANCE</Text>
-          </HStack>
-          <Text fontSize={"xs"} textTransform={"uppercase"}>
-            {t("pages.home.market.lastDay", { day: 7 })}
-          </Text>
-          <Img src={"/dummy/graphic.png"} />
-        </Box> */}
-
-        {/* <Box flex={1} px={{ base: "4", sm: "8" }}>
-          <HStack mb={4}>
-            <Img src={"/dummy/ethereum.png"} maxW={12} />
-            <Text fontSize={"xl"}>ETHEREUM</Text>
-          </HStack>
-          <Text fontSize={"xs"} textTransform={"uppercase"}>
-            {t("pages.home.market.lastDay", { day: 7 })}
-          </Text>
-          <Img src={"/dummy/graphic.png"} />
-        </Box> */}
       </Stack>
     </Card>
   );
