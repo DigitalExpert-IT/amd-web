@@ -1,13 +1,15 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useCrypto } from "hooks/useCrypto";
 import { formatPrice } from "utils/formater";
 import { useTranslation } from "react-i18next";
 import { Box, Card, Stack, HStack, Heading, Text, Img } from "@chakra-ui/react";
-import PriceChart from "components/PriceChart";
+import LineChart from "components/LineChart";
 
 export const MarketCard = () => {
   const { t } = useTranslation();
   const getCrypto = useCrypto();
+
+  // console.info("api datas", getCrypto[10])
 
   const highAndLow = (id: number) => {
     return getCrypto[id].prevPrice
@@ -36,6 +38,16 @@ export const MarketCard = () => {
     const rndInt = Math.floor(Math.random() * 10) + 1;
     return graphImages[rndInt];
   };
+
+  const data = [
+    { y: 0 },
+    {   y: 400 },
+    {   y: 300 },
+    {   y: 100 },
+    {   y: 400 },
+    {   y: 500 },
+    {   y: 400 },
+  ];
 
   const raw_prices = [
     234.898767411582, 235.06438522012053, 235.0462695246973, 234.61063603368441,
@@ -112,7 +124,14 @@ export const MarketCard = () => {
               {t("pages.home.market.lastDay", { day: 7 })}
             </Text>
             {/* <Img src={getRandomGraph()} /> */}
-            <PriceChart points={normalised_prices} />
+            <LineChart 
+              width={500}
+              height={200}
+              data={idx}
+              horizontalGuides={0}
+              precision={2}
+              verticalGuides={0} 
+            />
             <Text color={highAndLow(idx)} fontSize="xl">
               {formatPrice(item.price)}
             </Text>

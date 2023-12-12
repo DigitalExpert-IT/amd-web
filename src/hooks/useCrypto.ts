@@ -7,6 +7,8 @@ interface BinanceTickerData {
   lastPrice?: number;
   highPrice?: number;
   lowPrice?: number;
+  weightedAvgPrice: number;
+  priceChangePercent: number;
 }
 
 const useCrypto = () => {
@@ -33,6 +35,8 @@ const useCrypto = () => {
             lastPrice?: number;
             highPrice?: number;
             lowPrice?: number;
+            weightedAvgPrice: number;
+            priceChangePercent: number;
           };
 
           return {
@@ -41,6 +45,8 @@ const useCrypto = () => {
             lowPrice: foundItem?.lowPrice || 0,
             price: foundItem?.lastPrice || 0,
             prevPrice: item.price || 0,
+            weightedAvgPrice: foundItem.weightedAvgPrice || 0,
+            priceChangePercent: foundItem.priceChangePercent || 0
           };
         })
       );
