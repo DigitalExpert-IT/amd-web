@@ -48,15 +48,8 @@ const LineChart: React.FC<LineChartProps> = ({
 
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if(getCrypto[data].price !== getCrypto[data].prevPrice){
         manageGraphData(getCrypto[data].price - getCrypto[data].prevPrice)
-      }
-    }, 10000)
-    return () => {
-      clearInterval(interval);
-    };
-  }, [getCrypto[data].priceChangePercent])
+  }, [getCrypto[data]])
 
   const highAndLow = (id: number) => {
     return getCrypto[id].prevPrice

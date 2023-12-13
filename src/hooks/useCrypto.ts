@@ -56,7 +56,7 @@ const useCrypto = () => {
   }, [cryptocurrencies]);
 
   useEffect(() => {
-    const interval = setInterval(fetchCrypto, 5000);
+    const interval = setInterval(fetchCrypto, 60000);
     return () => clearInterval(interval);
   }, [fetchCrypto]);
 
