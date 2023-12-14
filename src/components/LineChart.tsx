@@ -30,7 +30,7 @@ const LineChart: React.FC<LineChartProps> = ({
   const getCrypto = useCrypto();
   const [latestData, setLatestData] =  useState<Shape[]>([])
   const FONT_SIZE = width / 50;
-  const maximumXFromData = Math.max(...latestData.map((e, index) => index));
+  const maximumXFromData = latestData.length - 1;
   const maximumYFromData = Math.max(...latestData.map((e) => e.y));
 
   const manageGraphData = (gapPrice : number) => {
