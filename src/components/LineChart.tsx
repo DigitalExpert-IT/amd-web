@@ -76,23 +76,6 @@ const LineChart: React.FC<LineChartProps> = ({
     })
     .join(" ");
 
-
-  const Axis: React.FC<{ points: string }> = ({ points }) => (
-    <polyline fill="none" stroke="#ccc" strokeWidth=".5" points={points} />
-  );
-
-  const XAxis: React.FC = () => (
-    <Axis
-      points={`${padding}, ${height - padding} ${width - padding}, ${
-        height - padding
-      }`}
-    />
-  );
-
-  const YAxis: React.FC = () => (
-    <Axis points={`${padding}, ${padding} ${padding}, ${height - padding} `} />
-  );
-
   const VerticalGuides: React.FC = () => {
     const guideCount = verticalGuides || latestData.length - 1;
 
@@ -137,60 +120,8 @@ const LineChart: React.FC<LineChartProps> = ({
     });
   };
 
-  const LabelXAxis: React.FC = () => {
-    const y = height - padding + FONT_SIZE * 2;
-
-    return latestData.map((element, index) => {
-      const x =
-        (index / maximumXFromData) * chartWidth + padding - FONT_SIZE / 2;
-      return (
-        <text
-          key={index}
-          x={x}
-          y={y}
-          style={{
-            fill: "#808080",
-            fontSize: FONT_SIZE,
-            fontFamily: "Helvetica",
-          }}
-        >
-          {element.label}
-        </text>
-      );
-    });
-  };
-
-  const LabelsYAxis: React.FC = () => {
-    const PARTS = horizontalGuides;
-    return new Array(PARTS + 1).fill(0).map((_, index) => {
-      const x = FONT_SIZE;
-      const ratio = index / horizontalGuides;
-      const yCoordinate =
-        chartHeight - chartHeight * ratio + padding + FONT_SIZE / 2;
-
-      return (
-        <text
-          key={index}
-          x={x}
-          y={yCoordinate}
-          style={{
-            fill: "#808080",
-            fontSize: FONT_SIZE,
-            fontFamily: "Helvetica",
-          }}
-        >
-          {Number((maximumYFromData * index) / PARTS).toFixed(precision)}
-        </text>
-      );
-    });
-  };
-
   return (
     <svg viewBox={`0 0 ${width} ${height}`}>
-      {/* <XAxis />
-      <LabelXAxis />
-      <YAxis />
-      <LabelsYAxis /> */}
       {verticalGuides && <VerticalGuides />}
       <HorizontalGuides />
       <polyline
